@@ -1,0 +1,54 @@
+<head>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+  />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <title>CursedBots | Owner Dashboard</title>
+</head>
+
+<body
+  style="background-color: black;
+  color: white" oncontextmenu="return false;">
+  <div style='width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center;'>
+    <form>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Pin Code</label>
+    <input type="number" class="form-control" name='pin' id="exampleInputEmail1" aria-describedby="emailHelp" style="background: #000; border-color: #292929; color: white;" required autofocus>
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1" style=''>
+    <label class="form-check-label" for="exampleCheck1" name='remember'>Remember me</label>
+  </div>
+  <button type="submit" class="btn btn-info">Submit</button>
+</form>
+    
+  </div>
+</body>
+
+<script>
+  if (localStorage.getItem('login') || sessionStorage.getItem('login')){
+    window.location.href = '/dashboard'
+  }
+  $('form').submit(function(e){
+    e.preventDefault()
+    $.ajax({
+      url: 'https://CBTSAPI.popqa17.repl.co/login',
+      type: 'POST',
+      data: $('form').serialize()
+    }).then((res)=>{
+      if(res.access == 'VALID'){
+        if($('#exampleCheck1').val()){
+          localStorage.setItem('login', 'yes')
+        } else {
+          sessionStorage.setItem('login', 'yes')
+        }
+        window.location.reload()
+      }
+    })
+  })
+  
+</script>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login Page</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+
+<body oncontextmenu="return false;">
+
+    <div class="container">
+
+        <div class="header">
+
+            <h2> LOGIN FORM </h2>
+
+        </div>
+
+        <form id="form" class="form">
+
+            <div class="form-control">
+
+                <label>Username</label>
+
+                <input type="text" name="" id="username" placeholder="Enter Your Username" autocomplete="off">
+
+                <i class="fas fa-check-circle"></i>
+
+                <i class="fas fa-exclamation-circle"></i>
+
+                <small>Error</small>
+
+            </div>
+
+            <div class="form-control">
+
+                <label>Password</label>
+
+                <input type="text" name="" id="password" placeholder="Enter Your Password" autocomplete="off">
+
+                <i class="fas fa-check-circle"></i>
+
+                <i class="fas fa-exclamation-circle"></i>
+
+                <small>Error</small>
+
+            </div>
+
+            <input type="submit" value="Login" class="btn" name="">
+          <a href="/reg.html" class="btn btn-success">Register</a>
+
+            </form>
+
+    </div>
+
+    <script type="text/javascript">
+
+        const form= document.getElementById('form');
+
+        const username= document.getElementById('username');
+
+        const password= document.getElementById('password');
+
+        form.addEventListener('submit',(event) => {
+
+        event.preventDefault();
+
+        validate();
+
+        })
+
+        const sendData = (usernameval ,sRate ,count) =>{
+
+      if(sRate == count)
+
+      {
+
+          
+
+          location.href = `indexm.html`;
+
+      }
+
+    }
+
+    // for final validation
+
+    const successMsg = (usernameval) => {
+
+        let formCon = document.getElementsByClassName('form-control');
+
+        var count=formCon.length-1;
+
+        for(var i=0; i<formCon.length;i++)
+
+        {
+
+            if(formCon[i].className == "form-control success")
+
+            {
+
+                var sRate = 0+i;
+
+                sendData(usernameval, sRate ,count);
+
+            }else{
+
+                return false;
+
+            }
+
+        }
+
+    }
+
+        const validate = () => {
+
+        const usernameval= username.value.trim();
+
+        const passwordval= password.value.trim();
+
+        if(usernameval == ""){
+
+        setErrormsg(username, 'Username cannot be blank');
+
+       }
+
+        else if(usernameval.length <= 2){
+
+             setErrormsg(username, 'Username must be min 3 characters');
+
+        }
+
+        else{
+
+            setSuccessMsg(username);
+
+        }
+
+        if(passwordval == ""){
+
+        setErrormsg(password, 'Password cant be blank');
+
+        }
+
+        else if(passwordval.length <= 5){
+
+        setErrormsg(password, 'Password must be minimum of 6 length');
+
+        }
+
+        else{
+
+        setSuccessMsg(password);
+
+         }
+
+         successMsg(usernameval);
+
+        }
+
+        function setErrormsg(input , errormsgs){
+
+        const formControl = input.parentElement;
+
+        const small = formControl.querySelector('small');
+
+        formControl.className = "form-control error";
+
+        small.innerHTML = errormsgs;
+
+    }
+
+    function setSuccessMsg(input)
+
+    {
+
+        const formControl = input.parentElement;
+
+        formControl.className = "form-control success";
+
+    }
+
+    </script>
+
+</body>
+
+</html>

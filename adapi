@@ -1,0 +1,37 @@
+
+  
+  <div style="width: 500px; height: 500px;">
+      <div id="advertisementWrapper" style="width: 500px; display: none; background-repeat: no-repeat; background-size: cover; height: 500px; overflow: hidden; border-radius: 30px; background-color:#7a7566; color: black; margin: 15px;">
+        <div  style="width: 500px; height: 500px; background-color: rgba(0,0,0, 0.1); color: white; z-index: 100; display: flex; align-items: center; flex-direction: column;">
+                <div style="margin-top: auto; text-align: left; width: 400px;">
+                  <h4>
+                    Testing title
+                  </h4>
+                  <p>
+                    Message
+                  </p>
+                </div>
+          </div>
+      </div>
+      </div>
+      <script>
+        $.ajax({
+          url: 'https://CBTSAPI.popqa17.repl.co/adverts/random'
+        }).then((res)=>{
+            var advert = res.advert
+            $('#advertisementWrapper').css('background-image', `url(${advert.image})`)
+            $('#advertisementWrapper').html(`
+             <div  style="width: 500px; height: 500px; background-color: rgba(0,0,0, 0.1); color: white; z-index: 100; display: flex; align-items: center; flex-direction: column;">
+                    <div style='margin-top: auto; text-align: left; width: 500px; padding: 15px 100px; background-color: rgba(0, 0, 0, 0.5);'>
+                      <h4>
+                        ${advert.title}
+                      </h4>
+                      <p>
+                        ${advert.message}
+                      </p>
+                    </div>
+            </div>
+            `)
+            $('#advertisementWrapper').fadeIn()
+        })
+      </script>

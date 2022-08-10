@@ -142,7 +142,7 @@
   $("form").submit(function (e) {
     e.preventDefault();
     $.ajax({
-      url: "https://CBTSAPI.popqa17.repl.co/adverts/add",
+      url: "https://api.cursedbots.xyz/adverts/add",
       type: "POST",
       data: $("form").serialize(),
     }).then((res) => {

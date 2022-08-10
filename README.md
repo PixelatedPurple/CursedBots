@@ -9,6 +9,7 @@ This is not available for self hosting and will never be available for self host
 You can also open issues and create pull requests. 
 
 > Links
+
 <a href="https://forums.cursedbots.xyz">Community Forum</a>
 
 <a href="https://chat.cursedbots.xyz">Community Chat</a>
@@ -18,4 +19,12 @@ You can also open issues and create pull requests.
 <a href="https://vercel.com">Our Hosting Service</a>
 
 > Badges
+
+<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/PixelatedPurple/CursedBots">
+
+<img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/cbtsxyz?style=social">
+
+<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/PixelatedPurple/CursedBots">
+
+<img alt="Maintenance" src="https://img.shields.io/maintenance/yes/2022">
 

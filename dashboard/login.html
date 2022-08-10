@@ -36,7 +36,7 @@
   $('form').submit(function(e){
     e.preventDefault()
     $.ajax({
-      url: 'https://CBTSAPI.popqa17.repl.co/login',
+      url: 'https://api.cursedbots.xyz/login',
       type: 'POST',
       data: $('form').serialize()
     }).then((res)=>{
